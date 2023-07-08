@@ -1,13 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: #171717;
+  font-family: "Fira Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.welcome-text {
+  position: absolute; /*Setting text in on the same section to allow interchangeable text animation*/
+  width: 100%; /*Set div width to fit browser*/
+  top: 45%; /*Set text at the center of <div>*/
+  /*setting animation */
+  animation: textrotate 10s linear infinite;
+  /* animation-name: textrotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite; */
+}
+
+/*WELCOME TEXT ANIMATION*/
+#welcome-txt1 {
+  animation-delay: -10s;
+} /*Neg timing to hide text before animation starts*/
+#welcome-txt2 {
+  animation-delay: -8s;
+}
+#welcome-txt3 {
+  animation-delay: -6s;
+}
+#welcome-txt4 {
+  animation-delay: -4s;
+}
+#welcome-txt5 {
+  animation-delay: -2s;
+}
+
+@keyframes textrotate {
+  0% {
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  2.5% {
+    transform: translateY(-40%);
+    opacity: 1;
+  }
+  5% {
+    transform: translateY(-40%);
+    opacity: 1;
+  }
+  7.5% {
+    transform: translateY(-40%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  12% {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-80%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.welcome-text h1 {
+  /*Text container styling*/
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  /*Text styling*/
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.25rem; /*Wide spacing between letters*/
+  /*animation*/
+  transition: 1s ease-in-out;
+}
+
+.progressMainWrapper {
+  background-color: #363636;
+  height: 2px;
+}
+
+.progressMainStyle {
+  height: 2px;
+  background-color: #00ffff;
+  width: 15%;
 }
