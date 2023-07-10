@@ -1,17 +1,11 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import "./Scene.css";
-import TrustTruth from "../TrustTruth/TrustTruth";
-import OurStory from "../OurStory/OurStory";
-import OurMission from "../OurMission/OurMission";
-import OurProjects from "../OurProjects/OurProjects";
-import Expertise from "../Expertise/Expertise";
-import Contact from "../Contact/Contact";
+import "../Scene/Scene.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Scene() {
+const Home = () => {
   const component = useRef();
   const slider = useRef();
 
@@ -36,9 +30,9 @@ export default function Scene() {
 
   return (
     <>
-      <div className="App" ref={component}>
+      <div className="App text-white" ref={component}>
         <div ref={slider} className="newContainer">
-          {/* <div className="panel">
+          <div className="panel">
             <section className="main-section" id="welcome-section">
               <div className="welcome-text" id="welcome-txt1">
                 <h1 className="text-[350px]">Hello</h1>
@@ -65,27 +59,36 @@ export default function Scene() {
                 </h1>
               </div>
             </section>
-          </div> */}
-          <div className="panel flex-center">
-            <TrustTruth />
           </div>
           <div className="panel flex-center">
-            <OurStory />
+            <div className="text-white ">
+              <h1 className="text-[350px]">Hello</h1>
+            </div>
           </div>
           <div className="panel flex-center">
-            <OurMission />
+            <h1 className="text-5xl">
+              <span className="text-[#00FFFF]">We</span> are By Experience
+            </h1>
           </div>
           <div className="panel flex-center">
-            <OurProjects />
+            <h1 className="text-5xl">
+              <span className="text-[#00FFFF]">We</span> solve problems
+            </h1>
           </div>
           <div className="panel flex-center">
-            <Expertise />
+            <h1 className="text-5xl">
+              <span className="text-[#00FFFF]">We</span> make things happen We
+            </h1>
           </div>
           <div className="panel flex-center">
-            <Contact />
+            <h1 className="text-5xl">
+              through creative and efficient use of design.
+            </h1>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Home;

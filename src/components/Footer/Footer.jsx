@@ -28,10 +28,11 @@ const Footer = () => {
   return (
     <>
       <div className="fixed bottom-10 left-0 right-0 container mx-auto">
+        <h5 className="text-white">Introduction</h5>
         <div className="progressMainWrapper my-4">
           <div
             className="progressMainStyle"
-            style={{ width: `${scrollTop + 15}%` }}
+            style={{ width: `${scrollTop}%` }}
           />
         </div>
         <div className="flex-between">

@@ -2,14 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 ::-webkit-scrollbar {
   display: none;
+}
+
+@font-face {
+  font-family: "futura-hv-bt-heavy";
+  src: url("./assets/fonts/FutuHv.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
 }
 
 body {
   margin: 0;
   background: #171717;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -107,4 +125,47 @@ body {
   height: 2px;
   background-color: #00ffff;
   width: 15%;
+}
+
+/* Project Card Styling */
+
+.project-card {
+  position: relative;
+  max-width: 320px;
+  margin: auto;
+  border-radius: 22px;
+  padding: 34px;
+  background: #2e2e2e;
+  box-shadow: -2px -5px 14px 1px rgba(0, 0, 0, 0.63) inset,
+    2px 5px 14px 0px #6c6969 inset;
+}
+
+.project-main-card .project-card:nth-child(2n) {
+  top: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .project-main-card .project-card:nth-child(2n) {
+    top: 0px;
+  }
+}
+/* Expertise Card Styling */
+
+.expertise-card {
+  position: relative;
+  max-width: 320px;
+  margin: auto;
+  border-radius: 22px;
+  padding: 34px;
+  background: #2e2e2e;
+  box-shadow: -2px -5px 14px 1px rgba(0, 0, 0, 0.63) inset,
+    2px 5px 14px 0px #6c6969 inset;
+}
+
+/* Contact Card Styling */
+.contact-card {
+  border-radius: 65.5px;
+  background: #2e2e2e;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.63) inset,
+    4px 4px 13px 0px rgba(108, 105, 105, 0.25) inset;
 }
