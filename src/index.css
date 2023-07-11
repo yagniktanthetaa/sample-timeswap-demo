@@ -5,6 +5,8 @@
 *,
 ::after,
 ::before {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -24,8 +26,17 @@
   font-weight: 400;
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
   background: #171717;
   font-family: "poppins", sans-serif;
   -webkit-font-smoothing: antialiased;

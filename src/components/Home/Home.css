@@ -1,0 +1,11 @@
+.newContainer {
+  width: 600vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+}

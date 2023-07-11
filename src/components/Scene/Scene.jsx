@@ -1,7 +1,8 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./Scene.css";
+import Introduction from "../Introduction/Introduction";
 import TrustTruth from "../TrustTruth/TrustTruth";
 import OurStory from "../OurStory/OurStory";
 import OurMission from "../OurMission/OurMission";
@@ -12,78 +13,57 @@ import Contact from "../Contact/Contact";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Scene() {
-  const component = useRef();
-  const slider = useRef();
+  const panels = useRef([]);
+  const panelsContainer = useRef();
 
-  useLayoutEffect(() => {
-    let panels = gsap.utils.toArray(".panel");
+  const createPanelsRefs = (panel, index) => {
+    panels.current[index] = panel;
+  };
+
+  useEffect(() => {
+    const totalPanels = panels.current.length;
     let ctx = gsap.context(() => {
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
+      gsap.to(panels.current, {
+        xPercent: -100 * (totalPanels - 1),
         ease: "none",
         scrollTrigger: {
-          trigger: slider.current,
+          trigger: panelsContainer.current,
           pin: true,
           scrub: 1,
-          snap: 0 / (panels.length - 1),
-          end: () => "+=" + slider.current.offsetWidth,
-          // markers: true
+          snap: 1 / (totalPanels - 1),
+          // base vertical scrolling on how wide the container is so it feels more natural.
+          end: () => "+=" + panelsContainer.current.offsetWidth,
         },
       });
-    }, component);
+    });
     return () => ctx.revert();
-  });
+  }, []);
 
   return (
     <>
-      <div className="App" ref={component}>
-        <div ref={slider} className="newContainer">
-          {/* <div className="panel">
-            <section className="main-section" id="welcome-section">
-              <div className="welcome-text" id="welcome-txt1">
-                <h1 className="text-[350px]">Hello</h1>
-              </div>
-              <div className="welcome-text" id="welcome-txt2">
-                <h1 className="text-5xl">
-                  <span className="text-[#00FFFF]">We</span> are By Experience
-                </h1>
-              </div>
-              <div className="welcome-text" id="welcome-txt3">
-                <h1 className="text-5xl">
-                  <span className="text-[#00FFFF]">We</span> solve problems
-                </h1>
-              </div>
-              <div className="welcome-text" id="welcome-txt4">
-                <h1 className="text-5xl">
-                  <span className="text-[#00FFFF]">We</span> make things happen
-                  We
-                </h1>
-              </div>
-              <div className="welcome-text" id="welcome-txt5">
-                <h1 className="text-5xl">
-                  through creative and efficient use of design.
-                </h1>
-              </div>
-            </section>
-          </div> */}
-          <div className="panel flex-center">
+      <div>
+        <div className="panel-container" ref={panelsContainer}>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 0)}>
+            <Introduction />
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 1)}>
             <TrustTruth />
-          </div>
-          <div className="panel flex-center">
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 2)}>
             <OurStory />
-          </div>
-          <div className="panel flex-center">
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 3)}>
             <OurMission />
-          </div>
-          <div className="panel flex-center">
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 4)}>
             <OurProjects />
-          </div>
-          <div className="panel flex-center">
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 5)}>
             <Expertise />
-          </div>
-          <div className="panel flex-center">
+          </section>
+          <section className="panel" ref={(e) => createPanelsRefs(e, 6)}>
             <Contact />
-          </div>
+          </section>
         </div>
       </div>
     </>
