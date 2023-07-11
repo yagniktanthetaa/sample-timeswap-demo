@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CircularProgressBar from "../CircularProgressBar/CircularProgressBar";
 
 const Footer = () => {
   const [scrollTop, setScrollTop] = useState(0);
@@ -37,6 +38,11 @@ const Footer = () => {
         </div>
         <div className="flex-between">
           <div className="flex gap-5">
+            <CircularProgressBar
+              strokeWidth="2"
+              sqSize="50"
+              percentage={scrollTop}
+            />
             <div className="w-12 h-12 text-2xl bg-[#00FFFF] rounded-full flex-center">
               <i className="fa-brands fa-linkedin rounded-xl"></i>
             </div>
