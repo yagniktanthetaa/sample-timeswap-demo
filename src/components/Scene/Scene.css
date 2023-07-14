@@ -1,5 +1,21 @@
+html {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+body {
+  overflow-y: visible;
+  position: relative;
+  overflow-x: hidden;
+}
+html,
+body {
+  margin: 0;
+}
+
 .panel-container {
-  width: 600%;
+  width: 720%;
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
@@ -15,4 +31,16 @@
   position: relative;
   box-sizing: border-box;
   padding: 10px;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
 }

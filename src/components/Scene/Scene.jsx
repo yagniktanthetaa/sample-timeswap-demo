@@ -30,13 +30,36 @@ export default function Scene() {
           trigger: panelsContainer.current,
           pin: true,
           scrub: 1,
-          snap: 1 / (totalPanels - 1),
+          snap: 0 / (totalPanels - 1),
           // base vertical scrolling on how wide the container is so it feels more natural.
           end: () => "+=" + panelsContainer.current.offsetWidth,
         },
       });
     });
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const reveal = () => {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        // var windowHeight = window.innerHeight;
+        var windowWidth = window.innerWidth;
+        console.log("🚀 ~ reveal ~ windowHeight:", windowWidth);
+        // var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementLeft = reveals[i].getBoundingClientRect().left;
+        var elementVisible = 600;
+
+        if (elementLeft < windowWidth - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", reveal);
   }, []);
 
   return (
@@ -47,19 +70,29 @@ export default function Scene() {
             <Introduction />
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 1)}>
-            <TrustTruth />
+            <div className="reveal">
+              <TrustTruth />
+            </div>
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 2)}>
-            <OurStory />
+            <div className="reveal">
+              <OurStory />
+            </div>
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 3)}>
-            <OurMission />
+            <div className="reveal">
+              <OurMission />
+            </div>
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 4)}>
-            <OurProjects />
+            <div className="reveal">
+              <OurProjects />
+            </div>
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 5)}>
-            <Expertise />
+            <div className="reveal">
+              <Expertise />
+            </div>
           </section>
           <section className="panel" ref={(e) => createPanelsRefs(e, 6)}>
             <Contact />

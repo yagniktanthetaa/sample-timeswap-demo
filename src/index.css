@@ -26,14 +26,6 @@
   font-weight: 400;
 }
 
-html,
-body {
-  margin: 0;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-}
-
 body {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -179,4 +171,21 @@ body {
   background: #2e2e2e;
   box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.63) inset,
     4px 4px 13px 0px rgba(108, 105, 105, 0.25) inset;
+}
+
+.animateMe {
+  animation: SlideUp 2s ease-out;
+}
+
+@keyframes SlideUp {
+  0% {
+    opacity: 0;
+    /* transform: translateY(50px); */
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(0px); */
+    transform: scale(1);
+  }
 }
