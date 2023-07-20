@@ -8,7 +8,7 @@ const Contact = () => {
     <>
       <div className="container mx-auto px-4">
         <div className="flex-col min-h-screen flex items-start justify-center">
-          <h3 className="text-6xl text-white  mt-5">Contact</h3>
+          {/* <h3 className="text-6xl text-white  mt-5">Contact</h3> */}
           <div className="mt-20 relative px-96">
             <div className="relative">
               <img src={CircleImage} alt="Circle" />

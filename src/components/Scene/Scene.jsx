@@ -49,7 +49,7 @@ export default function Scene() {
         console.log("🚀 ~ reveal ~ windowHeight:", windowWidth);
         // var elementTop = reveals[i].getBoundingClientRect().top;
         var elementLeft = reveals[i].getBoundingClientRect().left;
-        var elementVisible = 600;
+        var elementVisible = 400;
 
         if (elementLeft < windowWidth - elementVisible) {
           reveals[i].classList.add("active");
